@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #bound{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            margin: 150px auto;
+            position: absolute;
+            left: 400px;
+            top: 200px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = drag;
+
+        function drag() {
+            var zone = document.getElementById("bound");
+            zone.onmousedown = fnDown;
+        }
+        function fnDown(event) {
+            event = event || window.event;
+            var oDrag = document.getElementById("bound"), disX = event.clientX-oDrag.offsetLeft, disY = event.clientY-oDrag.offsetTop;
+            document.onmousemove = function (eventMove) {
+//                document.title =event.clientX+","+event.clientY;
+                eventMove = eventMove || window.event;
+//                oDrag.style.left = disX;
+//                oDrag.style.top = disY;eventeventeventevent
+                fnMove(eventMove, disX, disY);
+            }
+        }
+        function fnMove(e, posX, posY) {
+            var oDrag = document.getElementById("bound"), l=e.clientX-posX, t=e.clientY-posY;
+            oDrag.style.left=l+"px";
+            oDrag.style.top=t+"px";
+//            oDrag.style.left=e.clientX-oDrag.offsetLeft+"px";
+//            oDrag.style.top=e.clientY-oDrag.offsetTop+"px";
+        }
+        document.onmouseup = function () {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        }
+    </script>
+</head>
+<body>
+    <div id="bound"></div>
+</body>
+</html>

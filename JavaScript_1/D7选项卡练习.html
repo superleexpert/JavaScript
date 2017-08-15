@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+            /*normal表示不加粗*/
+            font:normal 12px "微软雅黑";
+            color: #000000;
+
+        }
+        /*body里设置的属性无法影响a标签的效果
+        body{
+            font:normal 12px "微软雅黑";
+            color: #000000;
+        }
+        */
+        #card_switch ul{
+            list-style: none;
+        }
+        #card_switch a{
+            text-decoration: none;
+        }
+        #card_switch{
+            width: 275px;
+            height: 190px;
+            /*background-color: green;*/
+            /*水平居中，垂直向下100px*/
+            margin: 100px auto;
+        }
+        #nav{
+            /*background-color: yellow;*/
+            height: 32px;
+            border-bottom: 2px solid #8B4513;
+        }
+        #nav li{
+            display: inline-block;
+            /*background-color: #8B4513;*/
+            width: 60px;
+            line-height: 30px;
+            border: 1px solid #999;
+            border-bottom: none;
+            margin-left: 5px;
+            text-align: center;
+        }
+        #nav li:hover{
+            /*光标类型*/
+            cursor: pointer;
+        }
+        #nav li.active1{
+            border-top:2px solid #8B4513;
+            border-bottom:2px solid #FFFFFF;
+        }
+        #card_switch div{
+            border: 1px solid #7396B8;
+            border-top: none;
+        }
+        #card_switch div li{
+            height: 30px;
+            line-height: 30px;
+            /*开头缩进距离*/
+            text-indent: 8px;
+        }
+        .show{
+            display: block;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var ul1 = document.getElementById("nav");
+            var liList = ul1.getElementsByTagName("li");
+            var div1 = document.getElementById("card_switch");
+            var divList = div1.getElementsByTagName("div");
+            for (var i = 0; i<liList.length; i++) {
+                liList[i].index = i;
+                liList[i].onmouseover = function () {
+                    for(var i = 0; i < liList.length; i++) {
+//                        className 属性设置或返回元素的 class 属性。
+                        liList[i].className = "";
+                    }
+                    var focus = this;
+                    focus.className = "active1";
+                    for(var j = 0; j < divList.length; j++) {
+                        divList[j].className = "hide";
+                    }
+                    divList[focus.index].className = "show";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="card_switch">
+        <ul id="nav">
+            <li class="active1">房产</li>
+            <li>家居</li>
+            <li>二手房</li>
+        </ul>
+        <div class="show">
+            <ul>
+                <li><a href="javascript:;">275万购昌平邻铁三居 总价20万买一居</a></li>
+                <li><a href="javascript:;">200万内购五环三居 140万安家东三环</a></li>
+                <li><a href="javascript:;">北京首现零首付楼盘 53万购东5环50平</a></li>
+                <li><a href="javascript:;">京楼盘直降5000 中信府 公园楼王现房</a></li>
+            </ul>
+        </div>
+        <div class="hide">
+            <ul>
+                <li><a href="javascript:;">40平出租屋大改造 美少女的混搭小窝</a></li>
+                <li><a href="javascript:;">经典清新简欧爱家 90平老房焕发新生</a></li>
+                <li><a href="javascript:;">新中式的酷色温情 66平撞色活泼家居</a></li>
+                <li><a href="javascript:;">瓷砖就像选好老婆 卫生间烟道的设计</a></li>
+            </ul>
+        </div>
+        <div class="hide">
+            <ul>
+                <li><a href="javascript:;">通州豪华3居260万 二环稀缺2居250w甩</a></li>
+                <li><a href="javascript:;">西3环通透2居290万 130万2居限量抢购</a></li>
+                <li><a href="javascript:;"> 黄城根小学学区仅260万 121平70万抛!</a></li>
+                <li><a href="javascript:;">独家别墅280万 苏州桥2居优惠价248万</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

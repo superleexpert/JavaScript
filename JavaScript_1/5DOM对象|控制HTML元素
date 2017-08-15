@@ -1,0 +1,107 @@
+getElementsByName()方法：
+返回带有指定名称的节点对象的集合。
+1. 因为文档中的 name 属性可能不唯一，所有 getElementsByName() 方法返回的是元素的数组，而不是一个元素。
+2. 和数组类似也有length属性，可以和访问数组一样的方法来访问，从0开始。
+
+getElementsByTagName()方法:
+返回带有指定标签名的节点对象的集合。返回元素的顺序是它们在文档中的顺序。
+
+区别getElementByID,getElementsByName,getElementsByTagName
+
+getAttribute()方法：
+通过元素节点的属性名称获取属性的值。
+1. elementNode：使用getElementById()、getElementsByTagName()等方法，获取到的元素节点。
+2. name：要想查询的元素节点的属性名字
+
+setAttribute()方法： - elementNode.setAttribute(name,value)
+setAttribute() 方法增加一个指定名称和值的新属性，或者把一个现有的属性设定为指定的值。
+1.name: 要设置的属性名。
+2.value: 要设置的属性值。
+
+setAttribute()方法:
+setAttribute() 方法增加一个指定名称和值的新属性，或者把一个现有的属性设定为指定的值。
+
+---节点属性---
+在文档对象模型 (DOM) 中，每个节点都是一个对象。DOM 节点有三个重要的属性 ：
+1. nodeName : 节点的名称
+2. nodeValue ：节点的值
+3. nodeType ：节点的类型
+
+访问子节点childNodes: elementNode.childNodes
+访问选定元素节点下的所有子节点的列表，返回的值可以看作是一个数组，他具有length属性。
+
+访问父节点parentNode: 获取指定节点的父节点
+
+---访问兄弟节点---
+1. nextSibling 属性可返回某个节点之后紧跟的节点（处于同一树层级中）。
+nodeObject.nextSibling
+2. previousSibling 属性可返回某个节点之前紧跟的节点（处于同一树层级中）。
+nodeObject.previousSibling
+
+插入节点appendChild()：在指定节点的最后一个子节点列表之后添加一个新的子节点。
+插入节点insertBefore()：insertBefore() 方法可在已有的子节点前插入一个新的子节点。
+删除节点removeChild()：removeChild() 方法从子节点列表中删除某个节点。如删除成功，此方法可返回被删除的节点，如失败，则返回 NULL。
+替换元素节点replaceChild():replaceChild 实现子节点(对象)的替换。返回被替换对象的引用。 node.replaceChild (newnode,oldnew )
+创建元素节点createElement:createElement()方法可创建元素节点。此方法可返回一个 Element 对象。 document.createElement(tagName)
+创建文本节点createTextNode：createTextNode() 方法创建新的文本节点，返回新创建的 Text 节点。 document.createTextNode(data)
+
+----浏览器窗口可视区域大小----
+一、对于IE9+、Chrome、Firefox、Opera 以及 Safari：
+•  window.innerHeight - 浏览器窗口的内部高度
+•  window.innerWidth - 浏览器窗口的内部宽度
+二、对于 Internet Explorer 8、7、6、5：
+•  document.documentElement.clientHeight表示HTML文档所在窗口的当前高度。
+•  document.documentElement.clientWidth表示HTML文档所在窗口的当前宽度。
+或者
+Document对象的body属性对应HTML文档的<body>标签
+•  document.body.clientHeight
+•  document.body.clientWidth
+
+在不同浏览器都实用的 JavaScript 方案：
+var w= document.documentElement.clientWidth
+      || document.body.clientWidth;
+var h= document.documentElement.clientHeight
+      || document.body.clientHeight;
+
+------
+网页尺寸scrollHeight：scrollHeight和scrollWidth，获取网页内容高度和宽度。
+一、针对IE、Opera:
+scrollHeight 是网页内容实际高度，可以小于 clientHeight。
+二、针对NS、FF:
+scrollHeight 是网页内容高度，不过最小值是 clientHeight。也就是说网页内容实际高度小于 clientHeight 时，scrollHeight 返回 clientHeight 。
+三、浏览器兼容性
+var w=document.documentElement.scrollWidth
+   || document.body.scrollWidth;
+var h=document.documentElement.scrollHeight
+   || document.body.scrollHeight;
+注意:区分大小写
+scrollHeight和scrollWidth还可获取Dom元素中内容实际占用的高度和宽度。
+
+---
+网页尺寸offsetHeight：
+offsetHeight和offsetWidth，获取网页内容高度和宽度(包括滚动条等边线，会随窗口的显示大小改变)。
+一、值
+offsetHeight = clientHeight + 滚动条 + 边框。
+二、浏览器兼容性
+var w= document.documentElement.offsetWidth
+    || document.body.offsetWidth;
+var h= document.documentElement.offsetHeight
+    || document.body.offsetHeight;
+
+---
+window.onload = function(){} 表示网页加载完执行后面的那个函数
+事件会在页面加载完成后，立即发生，同时执行被调用的程序。
+注意：
+1. 加载页面时，触发onload事件，事件写在<body>标签内。
+2. 此节的加载页面，可理解为打开一个新页面时。
+
+
+
+
+
+
+
+
+
+
+

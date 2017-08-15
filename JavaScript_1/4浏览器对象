@@ -1,0 +1,44 @@
+window:
+window对象是BOM的核心，window对象指当前的浏览器窗口。
+window.open：打开新的浏览器窗口
+
+计时器setTimeout()：setTimeout()计时器，在载入后延迟指定时间后,去执行一次表达式,仅执行一次。
+setInterval(代码,交互时间)： 在执行时,从载入页面后每隔指定的时间执行代码。
+1. 代码：要调用的函数或要执行的代码串。
+2. 交互时间：周期性执行或调用表达式之间的时间间隔，以毫秒计（1s=1000ms）。
+clearInterval() 方法可取消由 setInterval() 设置的交互时间。
+setTimeout()和clearTimeout()一起使用，停止计时器。
+
+History 对象：
+window.history.[属性|方法]
+history对象记录了用户曾经浏览过的页面(URL)，并可以实现浏览器前进与后退相似导航的功能。
+注意:从窗口被打开的那一刻开始记录，每个浏览器窗口、每个标签页乃至每个框架，都有自己的history对象与特定的window对象关联。
+window.history.back() : 加载 history 列表中的前一个 URL。相当于window.history.go(-1);
+window.history.forward(); 加载 history 列表中的下一个 URL。 window.history.go(1);
+
+Location对象：
+location用于获取或设置窗体的URL，并且可以用于解析URL。
+assign:加载新的文档
+
+Navigator对象：
+Navigator 对象包含有关浏览器的信息，通常用于检测浏览器与操作系统的版本。
+
+userAgent：返回用户代理头的字符串表示(就是包括浏览器版本信息等的字符串)
+navigator.userAgent
+
+screen对象: window.screen.属性
+screen对象用于获取用户的屏幕信息。
+
+屏幕分辨率的高和宽:
+1. screen.height 返回屏幕分辨率的高
+2. screen.width 返回屏幕分辨率的宽
+3. screen.availWidth 属性返回访问者屏幕的宽度，以像素计，减去界面特性，比如任务栏。
+4. screen.availHeight 属性返回访问者屏幕的高度，以像素计，减去界面特性，比如任务栏。
+
+注意:
+1. 区分大小写
+2. offsetParent：布局中设置postion属性(Relative、Absolute、fixed)的父容器，从最近的父节点开始，一层层向上找，直到HTML的body。
+
+
+
+

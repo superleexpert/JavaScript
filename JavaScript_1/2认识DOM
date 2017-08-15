@@ -1,0 +1,10 @@
+文档对象模型DOM（Document Object Model）:定义访问和处理HTML文档的标准方法。DOM 将HTML文档呈现为带有元素、属性和文本的树结构（节点树）。
+1. 元素节点：上图中<html>、<body>、<p>等都是元素节点，即标签。
+2. 文本节点:向用户展示的内容，如<li>...</li>中的JavaScript、DOM、CSS等文本。
+3. 属性节点:元素属性，如<a>标签的链接属性href="http://www.imooc.com"。
+
+innerHTML 属性用于获取或替换 HTML 元素的内容。
+display属性:网页中经常会看到显示和隐藏的效果，可通过display属性来设置。
+className: 属性设置或返回元素的class 属性。
+
+

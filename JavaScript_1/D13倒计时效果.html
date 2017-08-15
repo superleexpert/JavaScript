@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时效果</title>
+    <style type="text/css">
+
+    </style>
+    <script language="JavaScript" type="text/javascript">
+        window.onload = function () {
+            showTime();
+
+            var curtime = new Date();
+            var endtime = new Date("2018,6,6");
+//            getTime是转化成毫秒
+            var lefttime = endtime.getTime() - curtime.getTime();
+            var ceilShow = Math.ceil(lefttime/(24*60*60*1000));
+            if (lefttime<=0) {
+                alert(上考场);
+            }
+            alert('离高考还剩下'+ceilShow+'天');
+        }
+
+        function checkTime(i) {
+            if (i<10)
+            {i="0" + i}
+            return i
+        }
+
+        function showTime() {
+                var myDate = new Date();
+                var year = myDate.getFullYear();
+                var month = myDate.getMonth()+1;
+                var date = myDate.getDate();
+//            alert(myDate.getFullYear());
+                var d = myDate.getDay();
+                var h = myDate.getHours();
+                var m = myDate.getMinutes();
+                var s = myDate.getSeconds();
+
+            m = checkTime(m);
+            s = checkTime(s);
+                var weekday = new Array(7);
+                weekday[0] = '星期一';
+                weekday[1] = '星期二';
+                weekday[2] = '星期三';
+                weekday[3] = '星期四';
+                weekday[4] = '星期五';
+                weekday[5] = '星期六';
+                weekday[6] = '星期日';
+                var showDiv = document.getElementById('show');
+                showDiv.innerHTML = year+'年'+month+'月'+date+'日'+weekday[d-1]+h+':'+m+':'+s;
+
+            setTimeout(showTime,500);
+        }
+    </script>
+</head>
+<body>
+    <div class="content1">
+        <div id="show">显示时间未知</div>
+    </div>
+</body>
+</html>

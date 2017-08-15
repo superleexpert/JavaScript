@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="JS/test1.js"></script>
+    <script>
+        function myTest() {
+            alert("哈哈调用函数了")
+        }
+        function test1() {
+            var message = confirm()
+            if (message == true) {
+                document.write("girl")
+            }
+            else {
+                document.write("man")
+            }
+        }
+        function Wopen(){
+            window.open('http://www.imooc.com','_blank','width=600,height=400,menubar=no,toolbar=no, status=no,scrollbars=yes, top=100, left=0');
+
+        }
+//        关闭窗口
+//        var mywin=window.open("http://www.imooc.com");
+//        mywin.close();
+        function openWindow() {
+            var msg = confirm("是否打开新窗口")
+            // 新窗口打开时弹出确认框，是否打开
+            if(msg == true){
+                var address = prompt("即将打开以下网址：","http://www.imooc.com");
+                // 通过输入对话框，确定打开的网址，默认为 http：//www.imooc.com/
+                if(address !== null){
+                    //打开的窗口要求，宽400像素，高500像素，无菜单栏、无工具栏。
+                    window.open('address','_blank','width=400,height=500,menubar=no,toolbar=no');
+                }else{}
+            }else{
+                alert("算求!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <p id="p1">wo shi p1</p>
+    <script type="text/javascript">
+        document.getElementById("p1").style.color="blue";
+        document.getElementById("p1").innerHTML="baidu.com";
+    </script>
+    <script>
+        document.write("hello js");
+    </script>
+    <form action="">
+        <input type="button" value="点击我1" onclick="myTest()">
+        <input type="button" value="点击我2" onclick="test1()">
+        <input name="button" type="button" onClick="Wopen()" value="点击我，打开新窗口!">
+        <input type="button" value="新窗口打开网站" onclick="openWindow()">
+    </form>
+</body>
+</html>
+

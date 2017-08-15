@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM练习</title>
+    <style >
+        #txt{
+            width: 600px;
+            height: 400px;
+            border: 2px solid black;
+            padding: 10px;
+        }
+        #txt p{
+            line-height: 20px;
+            /*中文开头空格*/
+            text-indent: 2em;
+        }
+    </style>
+</head>
+<body>
+    <h2>JS DOM练习</h2>
+    <div id="txt">
+        <h5>JavaScript为网页添加动态效果并实现与用户交互的功能。</h5>
+        <p>1. JavaScript入门篇，让不懂JS的你，快速了解JS。</p>
+        <p>2. JavaScript进阶篇，让你掌握JS的基础语法、函数、数组、事件、内置对象、BOM浏览器、DOM操作。</p>
+        <p>3. 学完以上两门基础课后，在深入学习JavaScript的变量作用域、事件、对象、运动、cookie、正则表达式、ajax等课程。</p>
+    </div><br>
+    <input type="button" value="改变颜色" onclick="setColor()">
+    <input type="button" value="改变大小" onclick="setSize()">
+    <input type="button" value="隐藏内容" onclick="showContent()">
+    <input type="button" value="显示内容" onclick="hideContent()">
+    <input type="button" value="取消设置" onclick="cancel()">
+
+    <script style="text/javascript">
+        var txtDiv = document.getElementById("txt");
+
+        function setColor() {
+            txtDiv.style.color = "blue";
+            txtDiv.backgroundColor = "gray";
+        }
+        function setSize() {
+            txtDiv.style.width = "800px";
+            txtDiv.style.height = "500px";
+        }
+        function showContent() {
+            txtDiv.style.display = "none";
+        }
+        function hideContent() {
+            txtDiv.style.display = "block"
+        }
+        function cancel() {
+            var isConfirm = confirm("确定要恢复么?");
+            if (isConfirm) {
+                txtDiv.style.color = "black";
+                txtDiv.style.backgroundColor = "white";
+                txtDiv.style.width = "600px";
+                txtDiv.style.height= "400px";
+                txtDiv.style.display = "block";
+            }
+            else {
+                document.write("您选择了取消");
+            }
+        }
+    </script>
+</body>
+</html>

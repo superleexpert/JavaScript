@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{ font-size:16px;}
+        .one{
+            border:1px solid #eee;
+            width:230px;
+            height:50px;
+            background:#ccc;
+            color:red;
+        }
+        .two{
+            border:1px solid #ccc;
+            width:230px;
+            height:50px;
+            background:#9CF;
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+<h2 id="con">javascript</H2>
+<p> JavaScript是一种基于对象、事件驱动的简单脚本语言，嵌入在HTML文档中，由浏览器负责解释和执行，在网页上产生动态的显示效果并实现与用户交互功能。</p>
+<script type="text/javascript">
+    var mychar = document.getElementById("con");
+    document.write("原标题:"+mychar.innerHTML+"<br>"); //输出原h2标签内容
+    mychar.innerHTML = "HelloWorld";
+    document.write("修改后的标题:"+mychar.innerHTML); //输出修改后h2标签内容
+</script>
+<script type="text/javascript">
+    function hidetext()
+    {
+        var mychar = document.getElementById("con");
+        mychar.style.display = "none";
+    }
+    function showtext()
+    {
+        var mychar = document.getElementById("con");
+        mychar.style.display = "block";
+    }
+</script>
+<hr>
+<p id="pcon">我是DOM测试段落</p>
+<p id="dcon">做为一个Web开发师来说，如果你想提供漂亮的网页、令用户满意的上网体验，JavaScript是必不可少的工具。</p>
+<script>
+    var aChar = document.getElementById("pcon");
+    aChar.style.color = "red"
+    aChar.style.backgroundColor = "#CCC"
+    aChar.style.width = 300;
+</script>
+<form action="">
+    <input type="button" onclick="hidetext()" value="隐藏内容" />
+    <input type="button" onclick="showtext()" value="显示内容" />
+</form>
+<!---->
+<p id="p1" class="two"> JavaScript使网页显示动态效果并实现与用户交互功能。</p>
+<input type="button" value="添加样式" onclick="add()"/>
+<p id="p2" class="one">JavaScript使网页显示动态效果并实现与用户交互功能。</p>
+<input type="button" value="更改外观" onclick="modify()"/>
+
+<script type="text/javascript">
+    function add(){
+        var p1 = document.getElementById("p1");
+        p1.className = "one";
+    }
+    function modify(){
+        var p2 = document.getElementById("p2");
+        p2.className = "two";
+    }
+</script>
+</body>
+</html>

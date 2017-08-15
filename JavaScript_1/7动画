@@ -1,0 +1,16 @@
+简单动画
+可以直接改变物理的px
+
+缓冲动画
+
+多物理动画
+
+------
+<marquee>知识点：
+behavior滚动的方式
+direction滚动的方向
+loop滚动的次数
+scrollamount滚动次数
+
+---
+offsetTop:获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置

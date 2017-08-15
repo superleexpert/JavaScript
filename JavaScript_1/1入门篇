@@ -1,0 +1,10 @@
+document.write：输出内容
+alert：消息对话框
+confirm：选择对话框
+prompt：消息对话框，输入信息后作出判断逻辑
+window.open：打开新窗口
+
+
+
+
+

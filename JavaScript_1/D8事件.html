@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="JS/event.js"></script>
+</head>
+<body>
+    <div id="box">
+        <!--<input type="button" id="btn" value="按钮" onclick="alert('hello')">-->
+        <!--缺点：HTML和JS代码紧密的耦合在一起-->
+        <input type="button" id="btn" value="按钮" onclick=showMessage()>
+        <input type="button" id="btn2" value="按钮2">
+        <input type="button" id="btn3" value="按钮3">
+        <input type="button" id="btn4" value="按钮4">
+        <a href="D9事件对象.html" id="go">跳转</a>
+    </div>
+    <script type="text/javascript">
+        function showMessage() {
+            alert("hello world!!!");
+        }
+        function showMess(event) {
+            var ele = event.target || event.srcElement
+            alert(ele);
+//            alert(event.type)
+            alert(event.target.nodeName)
+            event.stopPropagation();
+        }
+        function showBox() {
+            alert("这是放按钮的盒子");
+        }
+        function stop(event) {
+            event.stopPropagation();
+            event.preventDefault();
+        }
+        var btn2 = document.getElementById("btn2");
+        btn2.onclick = function () {
+            alert("这是一个通过DOM0级添加的事件！");
+        };
+        btn2.onclick = null;
+        // DOM2级事件
+        var btn3 = document.getElementById("btn3");
+        btn3.addEventListener("click", showMessage, false);
+        btn3.addEventListener("click", function () {
+            alert(this.value);
+        }, false);
+        btn3.removeEventListener("click", showMessage, false);
+
+        //
+        var btn4 = document.getElementById("btn4");
+//        btn4.attachEvent("onclick", showMessage);
+//        btn4.detachEvent("onclick", showMessage);
+
+        // 封装跨浏览器事件处理程序
+        var eventUtil = {
+            // 添加句柄
+            addHandle:function (element, type, handler) {
+                if (element.addEventListener) {
+                    element.addEventListener(type,handler,false);
+                }
+                else if(element.attachEvent) {
+                    element.attachEvent("on"+type, handler);
+                }
+                else {
+                    element["on"+type] = handler;
+                }
+            },
+            // 删除句柄
+            removeHandle:function (element, type, handler) {
+                if (element.removeEventListener) {
+                    element.removeEventListener(type,handler,false);
+                }
+                else if(element.detachEvent) {
+                    element.detachEvent("on"+type, handler);
+                }
+                else {
+                    element["on"+type] = null;
+                }
+            },
+            getEvent:function (event) {
+                return event?event:window.event;
+            },
+            getType:function (event) {
+                return event.type;
+            },
+            getElement:function (event) {
+                return event.target || event.srcElement;
+            },
+            preventDefault:function (event) {
+                if (event.preventDefault) {
+                    event.preventDefault();
+                }
+                else {
+                    event.returnValue = false;
+                }
+            },
+            stopPropagation:function (event) {
+                if (event.stopPropagation){
+                    event.stopPropagation();
+                }
+                else {
+                    event.cancelBubble=true;
+                }
+            }
+        };
+
+        eventUtil.addHandle(btn4,"click",showMess);
+//        eventUtil.removeHandle(btn4,"click",showMessage);
+
+        //
+        var box = document.getElementById("box");
+        eventUtil.addHandle(box,"click",showBox);
+
+        //
+        var go = document.getElementById("go");
+        eventUtil.addHandle(go,"click",stop);
+    </script>
+
+</body>
+</html>
