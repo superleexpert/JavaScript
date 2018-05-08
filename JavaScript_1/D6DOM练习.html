@@ -5,14 +5,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=gbk"/>
     <script type="text/javascript">
 
-        setInterval{
+        function setInterval() {
             var tr=document.getElementsByTagName("tr");
             for(var i= 0;i<tr.length;i++)
             {
                 bgcChange(tr[i]);
             }
-            // Êó±êÒÆ¶¯¸Ä±ä±³¾°,¿ÉÒÔÍ¨¹ý¸øÃ¿ÐÐ°ó¶¨Êó±êÒÆÉÏÊÂ¼þºÍÊó±êÒÆ³ýÊÂ¼þÀ´¸Ä±äËùÔÚÐÐ±³¾°É«¡£
-        }
+            // ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½Ä±ä±³ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½Ð°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½É«ï¿½ï¿½
+        };
         function bgcChange(obj)
         {
             obj.onmouseover=function(){
@@ -23,7 +23,7 @@
             }
         }
 
-        // ±àÐ´Ò»¸öº¯Êý£¬¹©Ìí¼Ó°´Å¥µ÷ÓÃ£¬¶¯Ì¬ÔÚ±í¸ñµÄ×îºóÒ»ÐÐÌí¼Ó×Ó½Úµã£»
+        // ï¿½ï¿½Ð´Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½Å¥ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½Ì¬ï¿½Ú±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó½Úµã£»
         var num=2;
         function add(){
             num++;
@@ -31,9 +31,9 @@
             var xh=document.createElement("td");
             var xm=document.createElement("td");
             xh.innerHTML="xh00"+num;
-            xm.innerHTML="µÚ"+num+"Ñ§Éú";
+            xm.innerHTML="ï¿½ï¿½"+num+"Ñ§ï¿½ï¿½";
             var del=document.createElement("td");
-            del.innerHTML="<a href='javascript:;' onclick='del(this)' >É¾³ý</a>";
+            del.innerHTML="<a href='javascript:;' onclick='del(this)' >É¾ï¿½ï¿½</a>";
             var tab=document.getElementById("table");
             tab.appendChild(tr);
             tr.appendChild(xh);
@@ -47,7 +47,7 @@
         }
 
 
-        // ´´½¨É¾³ýº¯Êý
+        // ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         function del(obj)
         {
             var tr=obj.parentNode.parentNode;
@@ -63,24 +63,24 @@
 <body>
 <table border="1" width="50%" id="table">
     <tr>
-        <th>Ñ§ºÅ</th>
-        <th>ÐÕÃû</th>
-        <th>²Ù×÷</th>
+        <th>Ñ§ï¿½ï¿½</th>
+        <th>ï¿½ï¿½ï¿½ï¿½</th>
+        <th>ï¿½ï¿½ï¿½ï¿½</th>
     </tr>
 
     <tr>
         <td>xh001</td>
-        <td>ÍõÐ¡Ã÷</td>
-        <td><a href="javascript:;" onclick="del(this);">É¾³ý</a></td>   <!--ÔÚÉ¾³ý°´Å¥ÉÏÌí¼Óµã»÷ÊÂ¼þ  -->
+        <td>ï¿½ï¿½Ð¡ï¿½ï¿½</td>
+        <td><a href="javascript:;" onclick="del(this);">É¾ï¿½ï¿½</a></td>   <!--ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½Â¼ï¿½  -->
     </tr>
 
     <tr>
         <td>xh002</td>
-        <td>ÁõÐ¡·¼</td>
-        <td><a href="javascript:;" onclick="del(this);">É¾³ý</a></td>   <!--ÔÚÉ¾³ý°´Å¥ÉÏÌí¼Óµã»÷ÊÂ¼þ  -->
+        <td>ï¿½ï¿½Ð¡ï¿½ï¿½</td>
+        <td><a href="javascript:;" onclick="del(this);">É¾ï¿½ï¿½</a></td>   <!--ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½Â¼ï¿½  -->
     </tr>
 
 </table>
-<input type="button" value="Ìí¼ÓÒ»ÐÐ" onclick="add()" />   <!--ÔÚÌí¼Ó°´Å¥ÉÏÌí¼Óµã»÷ÊÂ¼þ  -->
+<input type="button" value="ï¿½ï¿½ï¿½Ò»ï¿½ï¿½" onclick="add()" />   <!--ï¿½ï¿½ï¿½ï¿½Ó°ï¿½Å¥ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½Â¼ï¿½  -->
 </body>
 </html>
