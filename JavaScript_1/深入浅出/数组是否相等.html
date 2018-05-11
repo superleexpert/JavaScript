@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+    <title>Untitled Document</title>
+    
+</head>
+<body>
+    <script type="text/javascript">   
+        /*
+         * param1 Array 
+         * param2 Array
+         * return true or false
+         */
+        /*全等===和相等==的区别
+        console.log(100 === '100');//false
+        console.log(100 == '100');//true
+        总结是===类型不同也会返回false ，==类型不同，值相同返回true*/
+
+        // 在Object.prototype.toString.apply眼里undefined也是Object。
+
+//1. 数组中的成员类型相同，顺序可以不同。例如[1, true] 与 [false, 2]是相似的。
+// 2. 数组的长度一致。
+// 3. 类型的判断范围，需要区分:String, Boolean, Number, undefined, null, 函数，日期, window.
+        function type(a){
+            return  a === null ? '[object Null]':Object.prototype.toString.apply(a); //hack ie678
+        }
+        function arraysSimilar(arr1, arr2){
+            //Array.isArray判断是否是数组
+            if(!Array.isArray(arr1) || !Array.isArray(arr2) ||arr1.length!=arr2.length){return false;}
+            var arr3=[];
+            var arr4=[];
+            var x;
+            for(var i in arr1){
+                arr3.push(type(arr1[i]));
+                arr4.push(type(arr2[i]));
+            }
+            if(arr3.sort().toString()==arr4.sort().toString()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    </script>
+    <script src="testData.js"></script>
+</body>
+</html>

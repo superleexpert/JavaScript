@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="test2.js"></script>
+    <script src="test3.js"></script>
+</head>
+<body>
+    <div id="caption">1111</div>
+    <input type="button" onclick='changeText()' value="Change Text"/>
+    <script type="text/javascript">
+        function changeText(){
+            document.getElementById('caption').innerHTML = 'Fred Flinstone111';
+        }
+
+        window.onload = function(){
+            var calculate = document.getElementById("caption");
+            let str = 'helloworld';
+            calculate.innerHTML = str;
+            // calculate.innerText = "got it";
+            calculate.style.backgroundColor = '#ccc';
+}
+    </script>
+</body>
+</html>
