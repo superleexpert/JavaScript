@@ -7,10 +7,25 @@
     <title>Document</title>
     <script src="test2.js"></script>
     <script src="test3.js"></script>
+    <style>
+        .logo{
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: rgb(71, 71, 124);
+        }
+        .show{
+            margin-top: 40px;
+            margin-left: 40px;
+        }
+    </style>
 </head>
 <body>
     <div id="caption">1111</div>
     <input type="button" onclick="changeText()" value="Change Text"/>
+    <div class="logo">
+        <img class="show" src="../images/logo.png">
+    </div>
     <script type="text/javascript">
         function changeText(){
             document.getElementById('caption').innerHTML = 'Fred Flinstone111';
@@ -22,7 +37,8 @@
             calculate.innerHTML = str;
             // calculate.innerText = "got it";
             calculate.style.backgroundColor = '#ccc';
-}
+            console.log("window loaded");
+        }
     </script>
 </body>
 </html>

@@ -21,7 +21,7 @@ console.log(typeof strTwo);
 //原型链
 var obj2 = {x: 111, y: 222, z: 333};
 console.log(obj2, obj2.y);
-delete obj2.y;
+// delete obj2.y;
 console.log(obj2);
 
 // 属性 get set 方法
@@ -39,6 +39,25 @@ var man = {
 }
 console.log(typeof cat);
 console.log(typeof man);
+
+// test prototype
+function Person() {
+
+}
+// 虽然写在注释里，但是你要注意：
+// prototype是函数才会有的属性
+Person.prototype.name = 'Kevin';
+var person1 = new Person();
+var person2 = new Person();
+console.log(person1.name) // Kevin
+console.log(person2.name) // Kevin
+
+// -- 
+function People() {
+}
+var people = new People();
+console.log("prototype and __proto__ test:" + (people.__proto__ === People.prototype)); // true
+// --
 
 // 对象标签、序列化
 // proto:原型标签
@@ -104,5 +123,24 @@ bosn.LEGS_NUM;
 bosn.walk();
 bosn.learn('math');
 
+// ES6继承
+class Point {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+      }
+}
 
+class ColorPoint extends Point {
+    constructor(x, y, color) {
+        // this.color = color; // ReferenceError
+        super(x, y);
+        this.color = color; // 正确
+    }
+}
+
+let cp = new ColorPoint(25, 8, 'green');
+cp instanceof ColorPoint // true
+cp instanceof Point // true
+let cp2 = new Point(24, 56);
 

@@ -84,6 +84,14 @@ bar.call(7);
     });
 }();
 
+//这种方法使用较多，也最为方便。var obj = {}就是声明一个空的对象
+var Circle = {
+    "PI": 3.14159,
+    "area": function(r){
+        return this.PI * r * r;
+    }
+};
+// alert( Circle.area(1.0) );//3.14159
 
 // OOP补充：
 // 模拟重载
