@@ -32,6 +32,9 @@ var arr5 = [1, 2, 3];
 arr.map(function(x){
     return x + 10;
 });
+arr.filter(function(x){
+    return x > 1;
+});
 
 // 数组过滤filter
 // 数组判断every some
@@ -75,14 +78,20 @@ bar.call(7);
 
 // 闭包 可以封装一些复杂的函数逻辑，可以访问函数里面的变量 
 // 滥用闭包会导致性能和空间的浪费
-!function(){ // 立即执行的匿名函数
+(function(test){ // 立即执行的匿名函数
+    console.log(test);
     console.log("local data:" + "got");
 
     var localData = "localData hear";
     document.addEventListener('click', function(){
         console.log("local data:" + localData);
     });
-}();
+})(12345);
+
+// WARMING: Expected an assignment or function call and instead saw an expression. (W030)
+// !function(test){
+//     console.log(test);
+// }();
 
 //这种方法使用较多，也最为方便。var obj = {}就是声明一个空的对象
 var Circle = {
